@@ -2,6 +2,7 @@
   "name": "custom-select-v1",
   "version": "0.1.1",
   "private": false,
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
