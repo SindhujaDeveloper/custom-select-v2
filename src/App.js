@@ -1,35 +1,25 @@
 import React, { useState } from 'react';
+import CustomSelect from './components/CustomSelect/indec';
 
-const CustomSelect = ({options, selected, onSelect}) => {
-  const [isOpen, setIsOpen] = useState(false);
+const App = () => {
 
-  const handleToggle = () => setIsOpen(!isOpen);
+  const [selectedOption, setSelectedOption] = useState('Select an option');
+  const options = ['Option 1', 'Option 2', 'Option 3'];
+
+
   const handleSelect = (option) => {
-    onSelect(option);
-    setIsOpen(false);
+    setSelectedOption(option);
   };
-
+  
   return (
-    <div className="custom-select">
-      <div className="select-header" onClick={handleToggle}>
-        {selected}
-        <span className={`arrow ${isOpen ? 'open' : ''}`}>▼</span>
-      </div>
-      {isOpen && options.length >= 1 && (
-        <div className="select-options">
-          {options.map((option, index) => (
-            <div
-              key={index}
-              className="select-option"
-              onClick={() => handleSelect(option)}
-            >
-              {option}
-            </div>
-          ))}
-        </div>
-      )}
+    <div>
+      <CustomSelect
+        options={options}
+        selected={selectedOption}
+        onSelect={handleSelect}
+      />
     </div>
   );
 };
 
-export default CustomSelect;
+export default App;
